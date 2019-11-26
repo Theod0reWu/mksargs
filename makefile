@@ -4,8 +4,8 @@ else
 	CC = gcc
 endif
 
-all: main.o args.c
-	$(CC) -o program
+all: main.o args.o
+	$(CC) -o program main.o args.o
 
 main.o: main.c args.h
 	$(CC) -c main.c
