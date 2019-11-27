@@ -1,15 +1,15 @@
 #include "args.h"
 
 char ** parse_args( char * line ){
-  //char ** argv = malloc(sizeof(char *) * 6);
-  char * argv[6];
+  char ** argv = calloc(sizeof(char *) , 6);
+  char * frag = line;
   int i = 0;
-  while(line != NULL){
-    printf("%s\n", line);
-    *(argv+i) = strsep(&line, " ");
-    printf("%s\n", argv[i]);
+  while(frag!= NULL){
+    //printf("frag: |%s|\n", frag);
+    *(argv+i) = strsep(&frag, " ");
+    //printf("last arg: |%s|\n", argv[i]);
     ++i;
   }
-  argv[5] = NULL;
+  argv[i] = NULL;
   return argv;
 }
